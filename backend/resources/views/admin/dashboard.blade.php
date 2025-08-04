@@ -4,7 +4,7 @@
 
 @section('content')
   {{-- <h1 class="mb-4">Dashboard</h1> --}}
-  <h1 class="text-white">Welcome to AnnaJ Dashboard</h1>
+  <h1 class="mb-4 text-white">Welcome to AnnaJ Dashboard</h1>
   <!-- More cards here -->
 
   <div class="row g-4">
