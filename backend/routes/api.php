@@ -23,8 +23,12 @@ Route::middleware('jwt')->group(function () {
     Route::post('/refresh', [AuthController::class, 'refresh']);
 });
 
+Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
+Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::get('/admin/users/create', [UserController::class, 'create'])->name('users.create');
+Route::get('/admin/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::get('/admin/users/{user}', [UserController::class, 'show'])->name('users.show');
 
-Route::apiResource('users', UserController::class)->names('users');
 Route::apiResource('products', ProductController::class)->names('products');
 Route::apiResource('categories', CategoryController::class)->names('categories');
 Route::apiResource('orders', OrderController::class)->names('orders');
