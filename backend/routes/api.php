@@ -29,8 +29,11 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('api
 Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
 Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 Route::get('/admin/users/create', [UserController::class, 'create'])->name('users.create');
+Route::get('/admin/users/store', [UserController::class, 'store'])->name('users.store');
 Route::get('/admin/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-Route::get('/admin/users/{user}', [UserController::class, 'show'])->name('users.show');
+// Route::get('/admin/users/{user}', [UserController::class, 'show'])->name('users.show');
+Route::put('/admin/users/{user}', [UserController::class, 'update'])->name('users.update');
+
 
 Route::apiResource('products', ProductController::class)->names('products');
 Route::apiResource('categories', CategoryController::class)->names('categories');

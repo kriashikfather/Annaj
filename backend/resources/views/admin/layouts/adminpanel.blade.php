@@ -82,6 +82,20 @@
     background-attachment: fixed;
   }
 </style>
+<style>
+  .form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    color: #000;
+  }
+  .form-label {
+    color: #004d1a;
+  }
+  .card {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+  }
+</style>
 
   @stack('styles')
 </head>
