@@ -9,24 +9,35 @@ use App\Http\Controllers\Controller;
 class CategoryController extends Controller
 {
     public function index() {
-        return Category::all();
+        $categories = Category::with('products')->get();
+
+        return view('admin.categories.index', compact('categories'));
     }
 
     public function store(Request $request) {
-        $request->validate(['name' => 'required|string']);
-        return Category::create($request->all());
+       $data = $request->validate(['name' => 'required|string']);
+        return Category::create($data);
     }
 
     public function show(Category $category) {
+        return $category->load('products');
+    }
+
+     // category update करना
+    public function update(Request $request, Category $category)
+    {
+        $data = $request->validate([
+            'name'        => 'required|string|unique:categories,name,' . $category->id,
+            'description' => 'nullable|string',
+        ]);
+
+        $category->update($data);
         return $category;
     }
 
-    public function update(Request $request, Category $category) {
-        $category->update($request->all());
-        return $category;
-    }
-
-    public function destroy(Category $category) {
+    // category delete करना
+    public function destroy(Category $category)
+    {
         $category->delete();
         return response()->json(['message' => 'Deleted']);
     }
