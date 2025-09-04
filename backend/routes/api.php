@@ -69,11 +69,11 @@ Route::delete('/admin/payments/{payment}', [PaymentController::class, 'destroy']
 // Route::get('/admin/payments/{payment}', [PaymentController::class, 'show'])->name('payments.show');
 
 
-Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
-Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
-Route::get('/bookings/{booking}', [BookingController::class, 'show'])->name('bookings.show');
-Route::put('/bookings/{booking}', [BookingController::class, 'update'])->name('bookings.update');
-Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+Route::get('/admin/bookings', [BookingController::class, 'index'])->name('bookings.index');
+Route::post('/admin/bookings', [BookingController::class, 'store'])->name('bookings.store');
+Route::get('/admin/bookings/{booking}', [BookingController::class, 'show'])->name('bookings.show');
+Route::put('/admin/bookings/{booking}', [BookingController::class, 'update'])->name('bookings.update');
+Route::delete('/admin/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
 
 
